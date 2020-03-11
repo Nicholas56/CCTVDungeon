@@ -7,8 +7,7 @@ TagManager:
   - ExcludeTeleport
   - TeleportIgnore
   - Teleport
-  - Pancake
-  - Hob
+  - Spawn
   layers:
   - Default
   - TransparentFX

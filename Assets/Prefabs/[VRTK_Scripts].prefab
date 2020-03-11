@@ -109,8 +109,8 @@ MonoBehaviour:
   selectOnPress: 0
   selectionDelay: 0
   selectAfterHoverDuration: 0
-  interactWithObjects: 0
-  grabToPointerTip: 0
+  interactWithObjects: 1
+  grabToPointerTip: 1
   attachedTo: {fileID: 0}
   controllerEvents: {fileID: 0}
   interactUse: {fileID: 0}
@@ -184,7 +184,7 @@ MonoBehaviour:
     maxAllowedPerFrameDistanceDifference: 0.003
     smoothsRotation: 0
     maxAllowedPerFrameAngleDifference: 1.5
-  validCollisionColor: {r: 0, g: 1, b: 0.62777686, a: 1}
+  validCollisionColor: {r: 0, g: 0.9811321, b: 0.6296638, a: 1}
   invalidCollisionColor: {r: 1, g: 0, b: 0, a: 1}
   tracerVisibility: 0
   cursorVisibility: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   scaleFactor: 0.002
   cursorScaleMultiplier: 25
   cursorMatchTargetRotation: 0
-  cursorDistanceRescale: 0
+  cursorDistanceRescale: 1
   maximumCursorScale: {x: Infinity, y: Infinity, z: Infinity}
   customTracer: {fileID: 0}
   customCursor: {fileID: 0}
@@ -338,8 +338,8 @@ MonoBehaviour:
   selectOnPress: 0
   selectionDelay: 0
   selectAfterHoverDuration: 0
-  interactWithObjects: 0
-  grabToPointerTip: 0
+  interactWithObjects: 1
+  grabToPointerTip: 1
   attachedTo: {fileID: 0}
   controllerEvents: {fileID: 0}
   interactUse: {fileID: 0}
@@ -413,7 +413,7 @@ MonoBehaviour:
     maxAllowedPerFrameDistanceDifference: 0.003
     smoothsRotation: 0
     maxAllowedPerFrameAngleDifference: 1.5
-  validCollisionColor: {r: 0, g: 1, b: 0.7300217, a: 1}
+  validCollisionColor: {r: 0, g: 0.9811321, b: 0.6296638, a: 1}
   invalidCollisionColor: {r: 1, g: 0, b: 0, a: 1}
   tracerVisibility: 0
   cursorVisibility: 0
@@ -421,7 +421,7 @@ MonoBehaviour:
   scaleFactor: 0.002
   cursorScaleMultiplier: 25
   cursorMatchTargetRotation: 0
-  cursorDistanceRescale: 0
+  cursorDistanceRescale: 1
   maximumCursorScale: {x: Infinity, y: Infinity, z: Infinity}
   customTracer: {fileID: 0}
   customCursor: {fileID: 0}

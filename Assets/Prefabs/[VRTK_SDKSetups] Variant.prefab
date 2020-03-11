@@ -33,11 +33,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1524498032245452, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
       propertyPath: m_Name
-      value: '[VRTK_SDKSetups]'
+      value: '[VRTK_SDKSetups] Variant'
       objectReference: {fileID: 0}
     - target: {fileID: 4600951965576352, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 7.99
       objectReference: {fileID: 0}
     - target: {fileID: 4600951965576352, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -79,9 +79,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4277915572687178, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277915572687178, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.617
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517441565980578, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517441565980578, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
     - target: {fileID: 4517441565980578, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517441565980578, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.953
+      objectReference: {fileID: 0}
+    - target: {fileID: 4517441565980578, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604570312227868, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 20696070889585900, guid: 190030810d9ee8441bac5a01dad4cdc8,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 190030810d9ee8441bac5a01dad4cdc8, type: 3}
