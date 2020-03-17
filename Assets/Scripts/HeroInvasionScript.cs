@@ -49,8 +49,9 @@ public class HeroInvasionScript : MonoBehaviour
                 //Here the actions are based on the state enum
                 switch (state)
                 {
+                    //The leader will move towards the next waypoint, the followers will follow the leader
                     case actionState.Exploring:
-                        MoveToTarget(currentParty[0], target);
+                        MoveToTarget(currentParty[0], target,partySpeed,0.4f);
                         for (int i = 0; i < currentParty.Length - 1; i++)
                         {
                             FollowLeader(currentParty[0], currentParty[i + 1]);
@@ -62,8 +63,39 @@ public class HeroInvasionScript : MonoBehaviour
                             timer = Time.time + checkDelay;
                         }
                         break;
+                        //Sets the characters' enemies, then allows them to fight until conclusion
                     case actionState.Fighting:
-
+                        if (enemyList.Count == 0) { state = actionState.Exploring; }
+                        else if (enemyList[0].HasEnemy())
+                        {
+                            for (int i = 0; i < heroList.Count; i++)
+                            {
+                                //Check the distance, then fight, otherwise move the character
+                                if (FightCheck(heroList[i]))
+                                { heroList[i].Fight(); }
+                                else
+                                { MoveToTarget(heroList[i]);}
+                            }
+                            for (int j = 0; j < enemyList.Count; j++)
+                            {
+                                if (FightCheck(enemyList[j]))
+                                { enemyList[j].Fight(); }
+                                else
+                                { MoveToTarget(enemyList[j]); }
+                            }
+                        }
+                        else
+                        {
+                            //If there are enemies about, but no enemies are attacking, sets all participants targets to attack
+                            for (int i = 0; i < heroList.Count; i++)
+                            {
+                                heroList[i].SetEnemy(enemyList[0]);
+                            }
+                            for (int j = 0; j < enemyList.Count; j++)
+                            {
+                                enemyList[j].SetEnemy(heroList[0]);
+                            }
+                        }
                         break;
                     case actionState.Fleeing:
 
@@ -87,6 +119,7 @@ public class HeroInvasionScript : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(leader.transform.position, leader.checkRadius, leader.checkFor);
         if (hitColliders.Length > 0)
         {
+            hitColliders = Physics.OverlapSphere(leader.transform.position, leader.checkRadius + 5f, leader.checkFor);
             foreach (Collider col in hitColliders)
             {
                 enemyList.Add(col.gameObject.GetComponent<MonsterScript>());
@@ -120,18 +153,30 @@ public class HeroInvasionScript : MonoBehaviour
         }
     }
 
-    void MoveToTarget(GameObject leader,Transform target)
+    void MoveToTarget(DungeonObject entity)
+    {
+        Vector3 direction = (entity.enemy.transform.position - entity.transform.position).normalized;
+        entity.transform.Translate(direction * entity.charSpeed * Time.deltaTime);
+    }
+
+    void MoveToTarget(GameObject leader,Transform newTarget, float moveSpeed,float checkDistance)
     {
         //For the leader, who is followed by the others, gets the move direction and moves towards the waypoint
-        Vector3 direction = (target.position - leader.transform.position).normalized;
-        transform.Translate(direction * partySpeed * Time.deltaTime);
+        Vector3 direction = (newTarget.position - leader.transform.position).normalized;
+        leader.transform.Translate(direction * moveSpeed * Time.deltaTime);
 
         //When this is close enough to its target, the target is changed to the next one
-        if (Vector3.Distance(transform.position, target.position) <= 0.4f)
+        if (Vector3.Distance(leader.transform.position, newTarget.position) <= checkDistance)
         {
             wayPointNum++;
             target = WayPointHolderScript.points[wayPointNum];
         }
+    }
+
+    bool FightCheck(DungeonObject entity)
+    {
+        if (Vector3.Distance(entity.transform.position, entity.enemy.transform.position) < entity.attackRange)
+        { return true; } else { return false; }
     }
 
     void FollowLeader(GameObject leader,GameObject follower)
