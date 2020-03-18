@@ -27,12 +27,12 @@ public class DungeonObject : MonoBehaviour
     public int maxActionPoints;
 
     public int level { get { return level; }
-        set{healthGain *= level;attackGain *= level;actionGain *= level;}} 
+        set{ level = value; healthGain *= level;  attackGain *= level;actionGain *= level;}} 
     
     public int healthGain, attackGain, actionGain; 
 
     public int exp {get { return exp; }
-        set { level = Mathf.FloorToInt(exp / (level * 100)); } }
+        set { exp = value;  level = Mathf.FloorToInt(exp / (level * 100)); } }
 
     public int essence { get { return level / 100; } }
 
