@@ -5,77 +5,98 @@ using UnityEngine;
 public class DungeonObject : MonoBehaviour
 {
     public string charName;
-
     public float charSpeed;
-
     public float attackRange;
-
-
+    
     public int maxHealth;
+    public int maxActionPoints;
+    public int startAttackValue = 3;
+    public int startLevelValue = 1;
 
-    int health { get { return health + healthGain; }
-        set { health = value; } }
+    int health;
+    int attack;
+    int actionPoints;
+    int level;
+    int exp;
+    float essence;
 
-    public int attack { get { return attack + attackGain; }
-        set { attack = value; } }
+    int Health 
+    { 
+        get { return health; }
+        set { health = value; } 
+    }
+    public int Attack 
+    {        
+        get { return attack + attackGain; }
+        set { attack = value; } 
+    }
+    protected int ActionPoints 
+    { 
+        get { return actionPoints; }
+        set { actionPoints = value; } 
+    }
+    public int Level 
+    { 
+        get { return level; }
+        set{ level = value; healthGain += level; maxHealth += level; attackGain += level; actionGain += level; maxActionPoints += level; }
+    }
+    public int Exp 
+    {
+        get { return exp; }
+        set { exp = value; } 
+    }
+    public float Essence 
+    { 
+        get { return (float)level / 100; }
+    }
 
-    int actionPoints { get { return actionPoints + actionGain; }
-        set { actionPoints = value; } }
-
+    public int healthGain, attackGain, actionGain;
     public int attackCost;
 
-    public int maxActionPoints;
-
-    public int level { get { return level; }
-        set{ level = value; healthGain *= level;  attackGain *= level;actionGain *= level;}} 
-    
-    public int healthGain, attackGain, actionGain; 
-
-    public int exp {get { return exp; }
-        set { exp = value;  level = Mathf.FloorToInt(exp / (level * 100)); } }
-
-    public int essence { get { return level / 100; } }
-
-
+    protected float timer=-1;
     public float checkRadius;
-
     public LayerMask checkFor;
 
     public GameManager.element charElement;
-
     public DungeonObject enemy;
-
-    HeroInvasionScript invasionScript;
+    protected HeroInvasionScript invasionScript;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        health = maxHealth;
-        actionPoints = maxActionPoints;
+        Health = maxHealth;
+        Attack = startAttackValue;
+        Level = startLevelValue;
+        ActionPoints = maxActionPoints;
         invasionScript = FindObjectOfType<HeroInvasionScript>();
     }
 
     public virtual void TakeDamage(int damage, DungeonObject attacker)
     {
         //This is how damage is taken by this entity/ may be modified
-        health -= damage;
-        if (health > maxHealth) { health = maxHealth; }
-        if (health <= 0)
+        Health -= damage;
+        if (Health > maxHealth) { Health = maxHealth; }
+        if (Health <= 0)
         {
             //The entity dealing damage gains 10% of this' exp for driving this to death
-            attacker.GainExp(Mathf.FloorToInt(exp*0.1f));
+            attacker.GainExp(Mathf.FloorToInt(Exp*0.1f));
             Death();
         }
     }
 
     protected virtual void Death()
     {
-
+        enemy = null;
+        GameManager.dungeonEssence += maxActionPoints + maxHealth;
     }
 
     public virtual void GainExp(int expGain)
     {
-        exp += expGain;
+        Exp += expGain;
+        if (Exp > Mathf.Pow(2, Level))
+        {
+            Level++;
+        }
     }
 
     public virtual void SetEnemy(DungeonObject newEnemy)
@@ -85,20 +106,30 @@ public class DungeonObject : MonoBehaviour
 
     public bool HasEnemy() { if (enemy) { return true; } else {return false; } }
 
-    public int GetHealth() { return health; }
+    public int GetHealth() { return Health; }
+    public int GetAction() { return ActionPoints; }
 
-
-    public virtual void Fight()
+    public virtual void Restore()
     {
-        //If enemy is in range and enough action points, attack can occur
-        actionPoints -= attackCost;
-        if (actionPoints > 0)
+        Health = maxHealth;
+        ActionPoints = maxActionPoints;
+    }
+
+    public virtual void Fight(float delay)
+    {
+        if (timer < Time.time)
         {
-            //Applies elemental advantages to attacks
-            enemy.TakeDamage(Mathf.FloorToInt(attack * GameManager.CalculateElements(this.charElement,enemy.charElement)), this);
-            exp++;
+            //If enemy is in range and enough action points, attack can occur
+            ActionPoints -= attackCost;
+            if (ActionPoints > maxActionPoints) { ActionPoints = maxActionPoints; }
+            if (ActionPoints > 0)
+            {
+                //Applies elemental advantages to attacks
+                enemy.TakeDamage(Mathf.FloorToInt(Attack * GameManager.CalculateElements(this.charElement, enemy.charElement)), this);
+                Exp++;
+            }
+            else { ActionPoints += attackCost; }
+            timer = Time.time + delay;
         }
-        else { actionPoints += attackCost; }
-        
     }
 }

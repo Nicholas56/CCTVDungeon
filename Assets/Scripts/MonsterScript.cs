@@ -10,17 +10,10 @@ public class MonsterScript : DungeonObject
     public enum enemyChoice { Weakest, Strongest, Healer}
     public enemyChoice choice;
 
-    List<CharacterScript> enemyList = new List<CharacterScript>();
-
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        
-    }
-
-    public void SetEnemy(List<CharacterScript> newEnemies)
-    {
-        enemyList = newEnemies;
+        base.Start();
     }
 
     public override void TakeDamage(int damage, DungeonObject attacker)
@@ -32,16 +25,35 @@ public class MonsterScript : DungeonObject
         base.TakeDamage(damage, attacker);
     }
 
-    public override void Fight()
+    protected override void Death()
+    {
+        base.Death();
+        
+        //For each hero in the current party, sets their enemy to null
+        for (int i = 0; i < invasionScript.heroRoster.Length; i++)
+        {
+            invasionScript.heroRoster[i].GetComponent<CharacterScript>().enemy = null;
+        }
+        //Removes this monster from the invasion enemy list
+        if (invasionScript.enemyList.Contains(this))
+        {
+            invasionScript.enemyList.Remove(this);
+        }
+        //Destroys the gameobject
+        Destroy(gameObject);
+    }
+
+    public override void Fight(float delay)
     {
         if (type == objectType.Monster)
         {
             if (enemy)
             {
-                base.Fight();
+                base.Fight(delay);
             }
             else
             {
+                List<CharacterScript> enemyList = invasionScript.heroList;
                 //Depending on the setting for the monster, it will pick a target before fighting
                 switch (choice)
                 {
@@ -77,6 +89,10 @@ public class MonsterScript : DungeonObject
                         break;
                 }
             }
+        }
+        else
+        {
+            base.Fight(delay);
         }
     }
 }

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public enum element { Fire, Water, Earth, Wind}
 
+    public static float dungeonEssence;
+
 
     // Start is called before the first frame update
     void Start()
