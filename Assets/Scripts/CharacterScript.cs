@@ -6,16 +6,26 @@ public class CharacterScript : DungeonObject
 {
     public enum heroClass { Fighter, Tank, Rogue, Healer}
     public heroClass hero;
-
+    
     public int fear;
 
     // Start is called before the first frame update
     protected override void Start()
     {
         base.Start();
+        anim = GetComponent<Animator>();
+        switch (hero)
+        {
+            //Ensures the correct animation plays
+            case heroClass.Fighter:anim.SetInteger("HeroClass", 1);break;
+            case heroClass.Tank: anim.SetInteger("HeroClass", 2); break;
+            case heroClass.Rogue: anim.SetInteger("HeroClass", 3); break;
+            case heroClass.Healer: anim.SetInteger("HeroClass", 4); break;
+        }
     }
     public override void TakeDamage(int damage, DungeonObject attacker)
     {
+        anim.SetTrigger("Damage");
         if (hero == heroClass.Tank)
         {
             damage = Mathf.FloorToInt(damage*0.5f);
@@ -43,6 +53,8 @@ public class CharacterScript : DungeonObject
     }
 
     public heroClass GetClass() { return hero; }
+
+    public void WalkAnim(bool isWalk) { anim.SetBool("Walking", isWalk); }
 
     public override void Restore()
     {
@@ -73,6 +85,7 @@ public class CharacterScript : DungeonObject
                     if (ActionPoints > maxActionPoints) { ActionPoints = maxActionPoints; }
                     if (ActionPoints > 0)
                     {
+                        anim.SetTrigger("Attack");
                         //Applies elemental advantages to healing
                         enemy.TakeDamage(Mathf.FloorToInt(Attack * -1 / (GameManager.CalculateElements(this.charElement, enemy.charElement))), this);
                         Exp++;

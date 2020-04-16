@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public enum element { Fire, Water, Earth, Wind}
 
     public static float dungeonEssence;
+    public static bool invasion;
 
 
     // Start is called before the first frame update

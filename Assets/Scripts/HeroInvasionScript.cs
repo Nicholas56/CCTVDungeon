@@ -42,6 +42,7 @@ public class HeroInvasionScript : MonoBehaviour
                 methods.FindTraps(trapList);
                 wayPointNum = 0;
                 target = WayPointHolderScript.points[wayPointNum];
+                GameManager.invasion = true;
                 stage = dungeonStage.Within;
                 state = actionState.Exploring;
                 break;
@@ -56,9 +57,11 @@ public class HeroInvasionScript : MonoBehaviour
                     case actionState.Exploring:
                         if (wayPointNum == WayPointHolderScript.points.Length-1) { stage = dungeonStage.Leaving; }
                         (target, wayPointNum) = methods.MoveToTarget(heroList[0].gameObject, target,partySpeed,0.4f,wayPointNum);
+                        heroList[0].WalkAnim(true);
                         for (int i = 0; i < heroList.Count - 1; i++)
                         {
                             methods.FollowLeader(heroList[i].gameObject, heroList[i + 1].gameObject,partySpeed);
+                            heroList[i + 1].WalkAnim(true);
                         }
                         //Performs a check of the party's surroundings every few seconds
                         if (Time.time > timer)
@@ -69,6 +72,7 @@ public class HeroInvasionScript : MonoBehaviour
                         break;
                         //Sets the characters' enemies, then allows them to fight until conclusion
                     case actionState.Fighting:
+                        //While fighting, essence release is increased
                         GameManager.dungeonEssence += methods.ReleaseEssence(heroList);
                         if (methods.FearCheck(heroList)) { state = actionState.Fleeing; wayPointNum--; }
                         //Checks if there are enemies in range, otherwise sets back to exploring
@@ -78,27 +82,30 @@ public class HeroInvasionScript : MonoBehaviour
 
                         for (int i = 0; i < heroList.Count; i++)
                         {
+                            heroList[i].WalkAnim(false);
                             //If there are no more enemies, the party resume exploring
                             if (enemyList.Count == 0) { state = actionState.Exploring; break; }
+                            if (heroList.Count == 0) { stage = dungeonStage.Leaving; break; }
                             if (!heroList[i].HasEnemy()) { heroList[i].Fight(checkDelay); }
                             //Check the distance, then fight, otherwise move the character
                             if (methods.FightCheck(heroList[i]))
                             {
                                 heroList[i].Fight(checkDelay);
                             }
-                            else
+                            else if(heroList[i])
                             { methods.MoveToTarget(heroList[i]); }
                         }
                         for (int j = 0; j < enemyList.Count; j++)
                         {
                             //If the party wipes out, the stage is changed to the leaving stage
                             if (heroList.Count == 0) { stage = dungeonStage.Leaving; break; }
+                            if (enemyList.Count == 0) { state = actionState.Exploring; break; }
                             if (!enemyList[j].HasEnemy()) { enemyList[j].Fight(checkDelay); }
                             if (methods.FightCheck(enemyList[j]))
                             {
                                 enemyList[j].Fight(checkDelay);
                             }
-                            else
+                            else if(enemyList[j])
                             { methods.MoveToTarget(enemyList[j]); }
                         }
                         
@@ -106,11 +113,13 @@ public class HeroInvasionScript : MonoBehaviour
                         break;
                         //When the collective fear of the party members is too much, the party will run away
                     case actionState.Fleeing:
-                        if (wayPointNum == 1) { stage = dungeonStage.Leaving; }
+                        if (wayPointNum <= 1) { stage = dungeonStage.Leaving; }
                         //Once the heroes begin to flee, they will run to the exit.
-                        methods.RunAway(heroList[0].gameObject, partySpeed, 0.5f, wayPointNum);
+                        wayPointNum = methods.RunAway(heroList[0].gameObject, partySpeed, 0.5f, wayPointNum);
+                        heroList[0].WalkAnim(true);
                         for (int i = 0; i < heroList.Count - 1; i++)
                         {
+                            heroList[i + 1].WalkAnim(true);
                             methods.FollowLeader(heroList[i].gameObject, heroList[i + 1].gameObject, partySpeed);
                         }
                         break;
@@ -132,6 +141,7 @@ public class HeroInvasionScript : MonoBehaviour
                 timer = Time.time + waitAmount;
                 //Sets the stage to the Out setting
                 stage = dungeonStage.Out;
+                GameManager.invasion = false;
                 break;
                 //This will clear info and will then wait until next invasion of heroes
             case dungeonStage.Out:

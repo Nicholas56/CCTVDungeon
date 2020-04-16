@@ -61,6 +61,8 @@ public class DungeonObject : MonoBehaviour
     public DungeonObject enemy;
     protected HeroInvasionScript invasionScript;
 
+    protected Animator anim;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -120,15 +122,14 @@ public class DungeonObject : MonoBehaviour
         if (timer < Time.time)
         {
             //If enemy is in range and enough action points, attack can occur
-            ActionPoints -= attackCost;
-            if (ActionPoints > maxActionPoints) { ActionPoints = maxActionPoints; }
             if (ActionPoints > 0)
             {
+                anim.SetTrigger("Attack");
+                ActionPoints -= attackCost;
                 //Applies elemental advantages to attacks
                 enemy.TakeDamage(Mathf.FloorToInt(Attack * GameManager.CalculateElements(this.charElement, enemy.charElement)), this);
                 Exp++;
             }
-            else { ActionPoints += attackCost; }
             timer = Time.time + delay;
         }
     }

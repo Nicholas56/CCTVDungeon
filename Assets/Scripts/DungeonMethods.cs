@@ -80,11 +80,9 @@ namespace DungeonMethodCollection
             {
                 case HeroInvasionScript.waitSetting.SetAmount:
                     if (timer < Time.time) { return true; } else { return false; }
-                    break;
                 
                 case HeroInvasionScript.waitSetting.OnCommand:
                     return false;
-                    break;
             }
             return false;
         }
@@ -181,7 +179,7 @@ namespace DungeonMethodCollection
             {
                 fearCount += hero.fear;
             }
-            if (fearCount == characters.Count * 10) { return true; }
+            if (fearCount >= characters.Count * 10) { return true; }
             else { return false; }
         }
 

@@ -10,6 +10,8 @@ public class MonsterScript : DungeonObject
     public enum enemyChoice { Weakest, Strongest, Healer}
     public enemyChoice choice;
 
+    public float placeCost;
+
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -32,7 +34,7 @@ public class MonsterScript : DungeonObject
         //For each hero in the current party, sets their enemy to null
         for (int i = 0; i < invasionScript.heroRoster.Length; i++)
         {
-            invasionScript.heroRoster[i].GetComponent<CharacterScript>().enemy = null;
+            invasionScript.heroList[i].enemy = null;
         }
         //Removes this monster from the invasion enemy list
         if (invasionScript.enemyList.Contains(this))
@@ -40,7 +42,7 @@ public class MonsterScript : DungeonObject
             invasionScript.enemyList.Remove(this);
         }
         //Destroys the gameobject
-        Destroy(gameObject);
+        Destroy(gameObject,2f);
     }
 
     public override void Fight(float delay)
@@ -93,6 +95,16 @@ public class MonsterScript : DungeonObject
         else
         {
             base.Fight(delay);
+        }
+    }
+
+    public void SetChoice(int choiceNum)
+    {
+        switch (choiceNum)
+        {
+            case 0: choice = enemyChoice.Weakest; break;                
+            case 1: choice = enemyChoice.Strongest; break;
+            case 2: choice = enemyChoice.Healer; break;
         }
     }
 }

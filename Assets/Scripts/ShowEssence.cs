@@ -1,21 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ShowEssence : MonoBehaviour
 {
 
-    public Text essence;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TMP_Text essence;
 
-    // Update is called once per frame
     void Update()
     {
+        //Displays total essence next to value shown to 2 decimal places
         essence.text = "Total Essence: " + GameManager.dungeonEssence.ToString("n2");
     }
 }
