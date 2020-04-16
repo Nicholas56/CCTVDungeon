@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5027543356714270739}
   - component: {fileID: 2289769964395035542}
   - component: {fileID: 5716332959563217835}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 2827076740436925908}
   - component: {fileID: 4233331526126387754}
   - component: {fileID: 9088792772541300594}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1225,7 +1225,7 @@ GameObject:
   - component: {fileID: 7646212496384452792}
   - component: {fileID: 1414376850675857125}
   - component: {fileID: 1112197258954934526}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10793,7 +10793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 711995299272214293}
   - component: {fileID: 6904143161672052656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeroHealer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10807,7 +10807,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7577384768926941608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 7.8425083, y: 0.5554602, z: -1.2234427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10816,7 +10816,7 @@ Transform:
   - {fileID: 4088846486715414013}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &6904143161672052656
 Animator:
   serializedVersion: 3
@@ -10847,6 +10847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealerHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8774936915081526700, guid: fb61401f0db809c4f8fc56d2769d7fc1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7352947256018036793, guid: fb61401f0db809c4f8fc56d2769d7fc1,
         type: 3}
@@ -10918,6 +10923,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.75
       objectReference: {fileID: 0}
+    - target: {fileID: 1161874427534235920, guid: fb61401f0db809c4f8fc56d2769d7fc1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146732495385307512, guid: fb61401f0db809c4f8fc56d2769d7fc1,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb61401f0db809c4f8fc56d2769d7fc1, type: 3}
 --- !u!4 &37408029140542684 stripped
@@ -10937,6 +10952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HealerStaff
+      objectReference: {fileID: 0}
+    - target: {fileID: 7412180938971817483, guid: b7470aa20994eed4f9e9802676a2081f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3140809881448346983, guid: b7470aa20994eed4f9e9802676a2081f,
         type: 3}
@@ -11007,6 +11027,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723247723406123695, guid: b7470aa20994eed4f9e9802676a2081f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064562207375356098, guid: b7470aa20994eed4f9e9802676a2081f,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7470aa20994eed4f9e9802676a2081f, type: 3}

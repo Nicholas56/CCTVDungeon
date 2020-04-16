@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1378585857254045874}
   - component: {fileID: 2568848908137098247}
   - component: {fileID: 2725352955604967090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9584,7 +9584,7 @@ GameObject:
   - component: {fileID: 3353910434762526283}
   - component: {fileID: 3713076455249861775}
   - component: {fileID: 8550324102669639600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10189,7 +10189,7 @@ GameObject:
   - component: {fileID: 8638042418204177347}
   - component: {fileID: 4591969995387574585}
   - component: {fileID: 6822671268903670179}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10793,7 +10793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7670646821397722237}
   - component: {fileID: 3308870474171081715}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeroFighter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10807,7 +10807,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7014634726309490274}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10816,7 +10816,7 @@ Transform:
   - {fileID: 4288091245852535963}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &3308870474171081715
 Animator:
   serializedVersion: 3
@@ -10847,6 +10847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FighterSword
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716807660632399636, guid: 7b49ec6d42cd46e4987bf8219074aa69,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9168569625264736055, guid: 7b49ec6d42cd46e4987bf8219074aa69,
         type: 3}
@@ -10918,6 +10923,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 703710653752217028, guid: 7b49ec6d42cd46e4987bf8219074aa69,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6265745962403774068, guid: 7b49ec6d42cd46e4987bf8219074aa69,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b49ec6d42cd46e4987bf8219074aa69, type: 3}
 --- !u!4 &9023539752916120069 stripped
@@ -10937,6 +10952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FighterHelmet
+      objectReference: {fileID: 0}
+    - target: {fileID: 3398465016359343473, guid: 53749cac7f46d3a45bc130fb0ea509e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2014790783002013667, guid: 53749cac7f46d3a45bc130fb0ea509e7,
         type: 3}
@@ -11007,6 +11027,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3780593841520451251, guid: 53749cac7f46d3a45bc130fb0ea509e7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725911862058409042, guid: 53749cac7f46d3a45bc130fb0ea509e7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53749cac7f46d3a45bc130fb0ea509e7, type: 3}

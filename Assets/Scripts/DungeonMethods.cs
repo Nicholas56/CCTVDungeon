@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Collection of functions used by the hero invasion script
 
 namespace DungeonMethodCollection
 {
@@ -40,6 +42,7 @@ namespace DungeonMethodCollection
             }
         }
 
+        //Moves an object to its current enemy
         public void MoveToTarget(DungeonObject entity)
         {
             Vector3 direction = (entity.enemy.transform.position - entity.transform.position).normalized;
@@ -74,6 +77,7 @@ namespace DungeonMethodCollection
             return currentWayPoint;
         }
 
+        //Depending on the setting will wait an amount of time before returning true
         public bool WaitCheck(float timer, HeroInvasionScript.waitSetting setting)
         {
             switch (setting)
@@ -87,6 +91,7 @@ namespace DungeonMethodCollection
             return false;
         }
 
+        //After PerformCheck(), sets all participants of battle a list of enemies
         public void SetEnemies(List<CharacterScript> heroes, List<MonsterScript> monsters)
         {
             for (int i = 0; i < heroes.Count; i++)
@@ -99,6 +104,7 @@ namespace DungeonMethodCollection
             }
         }
 
+        //Ensures combatants are close enough to fight
         public bool FightCheck(DungeonObject entity)
         {
             if (entity.HasEnemy())
@@ -123,6 +129,7 @@ namespace DungeonMethodCollection
             else { return true; }
         }
 
+        //During PerformCheck(), makes a list of nearby traps
         public void FindTraps(List<MonsterScript> traps)
         {
             traps.Clear();
@@ -172,6 +179,7 @@ namespace DungeonMethodCollection
             return speed;
         }
 
+        //Checks the combined fear of the party, and if high enough, sets the flee state
         public bool FearCheck(List<CharacterScript> characters)
         {
             int fearCount = 0;
@@ -183,6 +191,7 @@ namespace DungeonMethodCollection
             else { return false; }
         }
 
+        //Provides essence to the dungeon, from the heroes
         public float ReleaseEssence(List<CharacterScript> heroes)
         {
             float totalEssence = 0;

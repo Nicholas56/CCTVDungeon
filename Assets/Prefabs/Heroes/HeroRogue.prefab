@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1017138453258700814}
   - component: {fileID: 5188119288317563223}
   - component: {fileID: 2497895346861736630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -615,7 +615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4535736810113508858}
   - component: {fileID: 2499721342900530862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeroRogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5429976035685031623}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 2.992508, y: 0.5554602, z: -1.2234427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -638,7 +638,7 @@ Transform:
   - {fileID: 4719620268834586891}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &2499721342900530862
 Animator:
   serializedVersion: 3
@@ -671,7 +671,7 @@ GameObject:
   - component: {fileID: 87829601054906235}
   - component: {fileID: 2468540861251432716}
   - component: {fileID: 6724057275656711465}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 2069591131816037216}
   - component: {fileID: 4150075817555173268}
   - component: {fileID: 711742770369556112}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10848,6 +10848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RogueCrossbow
       objectReference: {fileID: 0}
+    - target: {fileID: 3977096521914375427, guid: 9cff017a73a216741868cadf4ee91b21,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 900720433402651889, guid: 9cff017a73a216741868cadf4ee91b21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10918,6 +10923,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.2514337
       objectReference: {fileID: 0}
+    - target: {fileID: 9118303112694312777, guid: 9cff017a73a216741868cadf4ee91b21,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460024716010021935, guid: 9cff017a73a216741868cadf4ee91b21,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cff017a73a216741868cadf4ee91b21, type: 3}
 --- !u!4 &1767779045202380164 stripped
@@ -10937,6 +10952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RogueHood
+      objectReference: {fileID: 0}
+    - target: {fileID: 8607230014437504875, guid: 0c5b2c6e6eef41e40a2c7d41c18ab3a2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5876669359746428252, guid: 0c5b2c6e6eef41e40a2c7d41c18ab3a2,
         type: 3}
@@ -11007,6 +11027,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058773776870654451, guid: 0c5b2c6e6eef41e40a2c7d41c18ab3a2,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989360080955477895, guid: 0c5b2c6e6eef41e40a2c7d41c18ab3a2,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c5b2c6e6eef41e40a2c7d41c18ab3a2, type: 3}

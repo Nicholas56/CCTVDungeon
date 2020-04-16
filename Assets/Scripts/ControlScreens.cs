@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Sets the target texture of the cameras in the dungeon
 
 public class ControlScreens : MonoBehaviour
 {
@@ -9,14 +11,12 @@ public class ControlScreens : MonoBehaviour
     public Camera camera3;
     public Camera camera4;
     public Camera camera5;
-    public Camera camera6;
 
     public RenderTexture camTex1;
     public RenderTexture camTex2;
     public RenderTexture camTex3;
     public RenderTexture camTex4;
     public RenderTexture camTex5;
-    public RenderTexture camTex6;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,13 +30,5 @@ public class ControlScreens : MonoBehaviour
             camera4.targetTexture = camTex4;
         if (camera5 && camTex5)
             camera5.targetTexture = camTex5;
-        if (camera6 && camTex6)
-            camera6.targetTexture = camTex6;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

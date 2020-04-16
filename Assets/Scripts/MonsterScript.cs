@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Inherits from Dungeon Object. Alters base functions and adds specialised functions for monsters
 
 public class MonsterScript : DungeonObject
 {
@@ -98,6 +100,7 @@ public class MonsterScript : DungeonObject
         }
     }
 
+    //Allows player to change monster behaviour
     public void SetChoice(int choiceNum)
     {
         switch (choiceNum)

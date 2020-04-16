@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Nicholas Easterby - EAS12337350
 //Mouse look script to attach to the camera, child of player body. The player body can be dragged into the editor for left right looking
 public class MouseLook : MonoBehaviour
 {

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Script for active participants in dungeon events, heroes and monsters
 
 public class DungeonObject : MonoBehaviour
 {
@@ -37,6 +39,7 @@ public class DungeonObject : MonoBehaviour
     }
     public int Level 
     { 
+        //When level rises, associated stats are also increased
         get { return level; }
         set{ level = value; healthGain += level; maxHealth += level; attackGain += level; actionGain += level; maxActionPoints += level; }
     }
@@ -47,6 +50,7 @@ public class DungeonObject : MonoBehaviour
     }
     public float Essence 
     { 
+        //Essence calculated based on level
         get { return (float)level / 100; }
     }
 
@@ -88,12 +92,14 @@ public class DungeonObject : MonoBehaviour
 
     protected virtual void Death()
     {
+        //Actions that occur upon the death of any dungeon object
         enemy = null;
         GameManager.dungeonEssence += maxActionPoints + maxHealth;
     }
 
     public virtual void GainExp(int expGain)
     {
+        //Calculates how much exp is needed for a level up
         Exp += expGain;
         if (Exp > Mathf.Pow(2, Level))
         {

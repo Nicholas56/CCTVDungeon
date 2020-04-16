@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Handles key variables and the elemental aspects of the game
 
 public class GameManager : MonoBehaviour
 {
@@ -9,19 +11,8 @@ public class GameManager : MonoBehaviour
 
     public static float dungeonEssence;
     public static bool invasion;
+    public static bool canTeleport;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public static float CalculateElements(element element1, element element2)
     {

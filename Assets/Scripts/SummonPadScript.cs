@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
+//Nicholas Easterby - EAS12337350
+//Allows the player to summon the control pad upon pressing the grab button twice in quick succesion
 
 public class SummonPadScript : MonoBehaviour
 {
     public Transform controlPad;
-    public Transform player;
+    Transform player;
     bool timeToGrab = false;
     float timer;
     float delay = 0f;
+
+    GameObject teleport;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +34,9 @@ public class SummonPadScript : MonoBehaviour
             timeToGrab = false;
             delay = 0f;
         }
+        if (teleport = null) { teleport = GameObject.FindGameObjectWithTag("Teleport"); }
+        if (GameManager.canTeleport) { teleport.GetComponent<VRTK_BasicTeleport>().enabled = true; }
+        else { teleport.GetComponent<VRTK_BasicTeleport>().enabled = false; }
     }
 
     public void BeginToSummon()
@@ -42,6 +49,5 @@ public class SummonPadScript : MonoBehaviour
             controlPad.position = pos;
         }
         timeToGrab = true;
-        Debug.Log("Function called");
     }
 }

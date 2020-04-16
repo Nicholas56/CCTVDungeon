@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+//Nicholas Easterby - EAS12337350
+//Shows essence value in text form
 
 public class ShowEssence : MonoBehaviour
 {

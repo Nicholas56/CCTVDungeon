@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DungeonMethodCollection;
+//Nicholas Easterby - EAS12337350
+//Single update method that handles every action performed by dungeon objects. Handles the game cycle and holds character data
 
 public class HeroInvasionScript : MonoBehaviour
 {
@@ -30,7 +32,7 @@ public class HeroInvasionScript : MonoBehaviour
     Transform target;
     int wayPointNum = -1;
 
-    // Update is called once per frame
+    // Switch cases for each stage of game and state of the party
     void Update()
     {
         switch (stage)
@@ -42,7 +44,10 @@ public class HeroInvasionScript : MonoBehaviour
                 methods.FindTraps(trapList);
                 wayPointNum = 0;
                 target = WayPointHolderScript.points[wayPointNum];
+                FindObjectOfType<SoundControl>().SwitchMusic();
                 GameManager.invasion = true;
+                //Sends the player to the control room
+                //FindObjectOfType<PadBehaviourScript>().ReturnToControlRoom();
                 stage = dungeonStage.Within;
                 state = actionState.Exploring;
                 break;

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Grants access to the waypoints for character navigation
 
 //Followed tutorial from Brackeys: https://www.youtube.com/watch?v=aFxucZQ_5E4&feature=emb_rel_end
 public class WayPointHolderScript : MonoBehaviour

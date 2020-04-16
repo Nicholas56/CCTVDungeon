@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 1082307194480216971}
   - component: {fileID: 3832564529133549893}
   - component: {fileID: 1108480024315368769}
+  - component: {fileID: 3190408450042072373}
   m_Layer: 0
   m_Name: OfficeScreen
   m_TagString: Untagged
@@ -745,8 +746,8 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 4419745941852929735}
   secondaryGrabActionScript: {fileID: 1082307194480216971}
-  isUsable: 0
-  holdButtonToUse: 1
+  isUsable: 1
+  holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
   useOverrideButton: 0
@@ -835,6 +836,99 @@ MonoBehaviour:
   intervalOnUse: 0.05
   cancelOnUnuse: 1
   objectToAffect: {fileID: 0}
+--- !u!114 &3190408450042072373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329033422161340107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f96f1837f21d4bf9a77ff61e7b81f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnObjectEnable:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnObjectDisable:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnNearTouch:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnNearUntouch:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnTouch:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUntouch:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnGrab:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUngrab:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUnuse:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnEnterSnapDropZone:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnExitSnapDropZone:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnSnapToDropZone:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  OnUnsnapFromDropZone:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: VRTK.UnityEventHelper.VRTK_InteractableObject_UnityEvents+InteractableObjectEvent,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &6974421665296303173
 GameObject:
   m_ObjectHideFlags: 0

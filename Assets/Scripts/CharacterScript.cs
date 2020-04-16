@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Inherits from DungeonObject. Gives the heroes additional functions and specialized behaviour
 
 public class CharacterScript : DungeonObject
 {
@@ -97,11 +99,13 @@ public class CharacterScript : DungeonObject
         }
         else
         {
+            //Adds fear each time the hero tries to perfom an action, but can't
             if (timer < Time.time&& ActionPoints <= 0)
             { 
                 fear++; 
                 timer = Time.time + delay;
             }
+            //If this hero has no enemy, but there are still enemies in the enemy list, sets the top one as enemy
             if (!enemy && invasionScript.enemyList.Count > 0) { enemy = invasionScript.enemyList[0]; }
             base.Fight(delay);
             

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7166582932360634309}
   - component: {fileID: 2703169398885574818}
   - component: {fileID: 7744043807867264357}
+  - component: {fileID: 8984702056943183218}
   m_Layer: 0
   m_Name: MonsterBall
   m_TagString: Untagged
@@ -39439,3 +39440,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8984702056943183218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367713841505827338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bddca78fdf81ba49a58d6a8aa1443c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: MonsterBall
+  charSpeed: 2
+  attackRange: 2
+  maxHealth: 10
+  maxActionPoints: 10
+  startAttackValue: 5
+  startLevelValue: 1
+  healthGain: 1
+  attackGain: 1
+  actionGain: 1
+  attackCost: 1
+  checkRadius: 8
+  checkFor:
+    serializedVersion: 2
+    m_Bits: 0
+  charElement: 0
+  enemy: {fileID: 0}
+  type: 0
+  choice: 0
+  placeCost: 0

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//Nicholas Easterby - EAS12337350
+//For each dungeon object, displays health and action points
 
 public class DisplayHealth : MonoBehaviour
 {
@@ -20,6 +22,7 @@ public class DisplayHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Every two seconds, updates the values of health and action points as percentage of maximum
         if (timer < Time.time)
         {
             healthBar.fillAmount = (float)character.GetHealth() / character.maxHealth;

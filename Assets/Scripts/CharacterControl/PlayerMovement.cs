@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Nicholas Easterby - EAS12337350
+//Allows player to move when VR is not available
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Allows movement when heroes are not invading
         if (GameManager.invasion)
         {
             if (Vector3.Distance(controlPos.position, transform.position) > 1f)

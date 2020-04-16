@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+//Nicholas Easterby - EAS12337350
+//This script was made for the non-VR player to have access to the methods needed to play the game
 
 public class DungeonManagement : MonoBehaviour
 {
@@ -108,6 +110,7 @@ public class DungeonManagement : MonoBehaviour
 
     public void MoveMonster()
     {
+        //Sets the monster as a transform of the player and removes the modify bar
         if (modifyMonster)
         {
             modifyMonster.transform.SetParent(transform);
@@ -130,6 +133,7 @@ public class DungeonManagement : MonoBehaviour
 
     public void RestoreMonster()
     {
+        //Resets health and action points using in built function in monster
         if (modifyMonster) { GetMonster(modifyMonster).Restore(); }
     }
 

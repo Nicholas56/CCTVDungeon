@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 117117762072763415}
   - component: {fileID: 487422331650647751}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HeroTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4365231677895783331}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.042508, y: 0.5554602, z: -1.2234427}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 2683683610662278594}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &487422331650647751
 Animator:
   serializedVersion: 3
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 1444714008444473082}
   - component: {fileID: 3434072739389572632}
   - component: {fileID: 3885331483662129919}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 2772103961006794616}
   - component: {fileID: 2188748554602457443}
   - component: {fileID: 2758932355915610442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FootL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,7 +1278,7 @@ GameObject:
   - component: {fileID: 6188797591318869779}
   - component: {fileID: 8854685213623893777}
   - component: {fileID: 7957449356879616758}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10848,6 +10848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TankHelmet
       objectReference: {fileID: 0}
+    - target: {fileID: 1746948693980947191, guid: 50e8215a993c14941ac01a0223e555a3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5940112996512075502, guid: 50e8215a993c14941ac01a0223e555a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10918,6 +10923,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 3591963661889908157, guid: 50e8215a993c14941ac01a0223e555a3,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496207298624699154, guid: 50e8215a993c14941ac01a0223e555a3,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e8215a993c14941ac01a0223e555a3, type: 3}
 --- !u!4 &5953397712603281452 stripped
@@ -10937,6 +10952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TankShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323591227562398072, guid: 3caa3f5f4330273418df46acb91f9c42,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5234691485472997846, guid: 3caa3f5f4330273418df46acb91f9c42,
         type: 3}
@@ -11007,6 +11027,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.3057269
+      objectReference: {fileID: 0}
+    - target: {fileID: 4376805858172167811, guid: 3caa3f5f4330273418df46acb91f9c42,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1682112824582143067, guid: 3caa3f5f4330273418df46acb91f9c42,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3caa3f5f4330273418df46acb91f9c42, type: 3}
