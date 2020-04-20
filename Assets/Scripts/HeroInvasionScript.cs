@@ -44,7 +44,8 @@ public class HeroInvasionScript : MonoBehaviour
                 methods.FindTraps(trapList);
                 wayPointNum = 0;
                 target = WayPointHolderScript.points[wayPointNum];
-                FindObjectOfType<SoundControl>().SwitchMusic();
+                FindObjectOfType<SoundControl>().SwitchMusic(true);
+                FindObjectOfType<PadBehaviourScript>().ReturnToControlRoom();
                 GameManager.invasion = true;
                 //Sends the player to the control room
                 //FindObjectOfType<PadBehaviourScript>().ReturnToControlRoom();
@@ -54,6 +55,7 @@ public class HeroInvasionScript : MonoBehaviour
                 //The main actions of the heroes will be decided here and will loop through until the situation changes
             case dungeonStage.Within:
                 GameManager.dungeonEssence += (methods.ReleaseEssence(heroList))/4;
+                //At any point inside the dungeon, if a hero gets too close to a trap, it will activate
                 methods.TrapCheck(trapList, heroList, checkDelay);
                 //Here the actions are based on the state enum
                 switch (state)
@@ -146,6 +148,7 @@ public class HeroInvasionScript : MonoBehaviour
                 timer = Time.time + waitAmount;
                 //Sets the stage to the Out setting
                 stage = dungeonStage.Out;
+                FindObjectOfType<SoundControl>().SwitchMusic(false);
                 GameManager.invasion = false;
                 break;
                 //This will clear info and will then wait until next invasion of heroes

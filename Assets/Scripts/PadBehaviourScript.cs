@@ -12,6 +12,7 @@ public class PadBehaviourScript : MonoBehaviour
 
     Transform player;
     public Transform controlRoomPos;
+    public GameObject monster;
 
     public void ReturnToControlRoom()
     {
@@ -33,6 +34,17 @@ public class PadBehaviourScript : MonoBehaviour
         //Opens the selected menu
         CloseMenu();
         menu.GetComponent<Animator>().SetBool("Menu", true);
+    }
+
+    public void CreateMonster()
+    {
+        if (GameManager.dungeonEssence > 100)
+        {
+            Vector3 pos1 = GameObject.FindGameObjectWithTag("Spawn").transform.position;
+            GameObject newMonster = Instantiate(monster);
+            newMonster.transform.position = new Vector3(pos1.x+1, 1.6f, pos1.z+1);
+            GameManager.dungeonEssence -= 100;
+        }
     }
 
     void CloseMenu()

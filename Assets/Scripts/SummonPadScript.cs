@@ -17,6 +17,7 @@ public class SummonPadScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.dungeonEssence += 101;
     }
 
     // Update is called once per frame
@@ -34,9 +35,9 @@ public class SummonPadScript : MonoBehaviour
             timeToGrab = false;
             delay = 0f;
         }
-        if (teleport = null) { teleport = GameObject.FindGameObjectWithTag("Teleport"); }
-        if (GameManager.canTeleport) { teleport.GetComponent<VRTK_BasicTeleport>().enabled = true; }
-        else { teleport.GetComponent<VRTK_BasicTeleport>().enabled = false; }
+        //if (teleport = null) { teleport = GameObject.FindGameObjectWithTag("Teleport"); }
+        //if (GameManager.canTeleport) { teleport.GetComponent<VRTK_BasicTeleport>().enabled = true; }
+        //else { teleport.GetComponent<VRTK_BasicTeleport>().enabled = false; }
     }
 
     public void BeginToSummon()

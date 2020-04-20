@@ -16,9 +16,15 @@ public class SoundControl : MonoBehaviour
         sound = GetComponent<AudioSource>();
     }
 
-    public void SwitchMusic()
+    public void SwitchMusic(bool music)
     {
-        if(sound.clip = calmMusic) { sound.clip = tenseMusic; }
-        if(sound.clip = tenseMusic) { sound.clip = calmMusic; }
+        if(music) { sound.clip = tenseMusic; }
+        else{ sound.clip = calmMusic; }
+        sound.Play();
+    }
+
+    public void Mute()
+    {
+        sound.mute = !sound.mute;
     }
 }
